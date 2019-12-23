@@ -1,0 +1,38 @@
+body {
+    background: url(../images/nice_snow.png);
+
+}
+
+.game-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+.tree {
+    background: url(../images/Tree.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 300px;
+    height: 600px;
+    float: left;
+    margin: 10px;
+    z-index: 1;
+
+
+}
+
+.present {
+    width: 60px;
+    height: 60px;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+    background-image: url(../images/present.png);
+}
+
+.game-board {
+    border: green dotted;
+}
+
+.game-stats {}

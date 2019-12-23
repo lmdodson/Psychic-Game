@@ -3,21 +3,35 @@ body {
 
 }
 
+.header-banner {
+    grid-area: header;
+    text-align: center;
+    /* height: 100px; */
+    /* width: 50%; */
+    font-family: 'Courgette', cursive;
+    font-size: 50px;
+    color: rgba(142, 207, 43, 0.781);
+    border: rgba(142, 207, 43, 0.781) dotted;
+
+}
+
 .game-section {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-areas:
+        'header header header'
+        'tree empty game'
+        'tree empty stats';
+    /* grid-template-columns: auto auto auto; */
     gap: 20px;
 }
 
 .tree {
+    grid-area: tree;
     background: url(../images/Tree.png) no-repeat;
     background-position: center;
     background-size: contain;
     width: 300px;
     height: 600px;
-    float: left;
-    margin: 10px;
-    z-index: 1;
 
 
 }
@@ -32,7 +46,13 @@ body {
 }
 
 .game-board {
-    border: green dotted;
+    grid-area: game;
+    border: rgba(142, 207, 43, 0.781) dotted;
 }
 
-.game-stats {}
+.game-stats {
+    grid-area: stats;
+    color: rgba(142, 207, 43, 0.781);
+    border: rgba(142, 207, 43, 0.781) dotted;
+
+}

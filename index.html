@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
+
 </head>
 
 <body>
@@ -15,7 +16,8 @@
         <div class="header-banner">Word Guess Game</div>
         <div class="tree"></div>
         <div class="game-board">
-            <div class="ornament">
+            <p id="word"></p>
+            <!-- <div class="ornament">
                 <div class="word-letter"></div>
             </div>
             <div class="ornament">
@@ -29,20 +31,22 @@
             </div>
             <div class="ornament">
                 <div class="word-letter"></div>
-            </div>
+            </div> -->
         </div>
         <div class="game-stats">
             <p class="directions">Press any letter key to begin!</p>
             <br><br><br>
             <p class="wins">Wins: </p>
             <br><br><br>
-            <p class="guesses">Number of Guesses Remaining: </p>
+            <p class="guesses">Number of Guesses Remaining: <span id="guessesLeft">10</span> </p>
             <br><br><br>
-            <p class="letters-guessed">Letters guessed: </p>
+            <p class="letters-guessed">Letters guessed: <span id="lettersGuessed"></span></p>
         </div>
 
     </section>
 
 </body>
+
+<script src="assets/javascript/game.js"></script>
 
 </html>

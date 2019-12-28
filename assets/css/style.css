@@ -57,6 +57,12 @@ body {
     text-align: center;
 }
 
+#word {
+    padding-top: 30px;
+    font-size: x-large;
+    color: darkblue;
+}
+
 .ornament {
     background: url(../images/ornament.png) no-repeat;
     background-size: contain;

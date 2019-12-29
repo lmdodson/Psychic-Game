@@ -1,4 +1,5 @@
-//Array of words to choose from
+//!Set variables
+//The list of words to choose from
 var wordList = [
     "snowflake",
     "present",
@@ -13,27 +14,54 @@ var wordList = [
     "lights",
     "cuddles"
 ];
-//!Select a random word from the wordList array
-var wordRandom = wordList[Math.floor(Math.random() * wordList.length)];
-// var wordSelected = wordRandom.split("");
-alert(wordRandom)
 
-//!Creates an array from the selected word and displays __ in the HTML for each letter in the word
+//The randomly selected word
+var wordRandom = "";
+//The array of letters in the randomly selected word
+var wordLetters = [];
+//array for wrong guesses
+var lettersGuessed = [];
+
 var answerArray = [];
-for (var i = 0; i < wordRandom.length; i++) {
-    answerArray[i] = "  __  ";
-    document.getElementById("word").innerHTML = answerArray.join(" ");
+
+//Stats variables
+var guessesLeft = 10;
+var wins = 0;
+var losses = 0;
+
+//!Functions
+
+function setStats() {
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+    document.getElementById("totalWins").innerHTML = wins;
 }
 
+
+function wordSelection() {
+
+    //Select a random word from the wordList array
+    wordRandom = wordList[Math.floor(Math.random() * wordList.length)];
+
+    //split the word into new array
+    wordLetters = wordRandom.split("");
+
+    // for testing purposes
+    alert(wordRandom)
+
+    //Creates an array from the selected word and displays __ in the HTML for each letter in the word
+    for (var i = 0; i < wordLetters.length; i++) {
+        answerArray[i] = "  __  ";
+        document.getElementById("word").innerHTML = answerArray.join(" ");
+    }
+}
+
+
+setStats()
+wordSelection()
 // alert(wordRandom)
 
-//!Set game stats
-var guessesLeft = 10;
-document.getElementById("guessesLeft").innerHTML = guessesLeft;
-var lettersGuessed = [];
-document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
-var wins = 0;
-document.getElementById("totalWins").innerHTML = wins;
+
 
 
 var remainingLetters = wordRandom.length;
@@ -52,13 +80,8 @@ document.onkeyup = function (event) {
             console.log(answerArray)
             document.getElementById("word").innerHTML = answerArray.join(" ");
         }
-        // else if (remainingLetters = 0) {
-        //     alert("You Win!");
-        //     document.getElementsByClassName("wins").innerHTML = wins + 1
-
     }
 }
-
 
 
 //!Game code

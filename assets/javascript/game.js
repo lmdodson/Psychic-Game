@@ -25,7 +25,31 @@ for (var i = 0; i < wordRandom.length; i++) {
     document.getElementById("word").innerHTML = answerArray.join(" ");
 }
 
-alert(wordRandom)
+// alert(wordRandom)
+
+//!Set game stats
+var guessesLeft = 10;
+document.getElementById("guessesLeft").innerHTML = guessesLeft
+var lettersGuessed = "";
+document.getElementById("lettersGuessed").innerHTML = lettersGuessed
 
 var remainingLetters = wordRandom.length;
-// alert(wordSelected)
+// while (remainingLetters > 0) {
+document.onkeyup = function (event) {
+    var userGuess = event.key
+    alert(userGuess);
+    for (var j = 0; j < wordRandom.length; j++) {
+        if (wordRandom[j] === userGuess) {
+            answerArray[j] = userGuess;
+            remainingLetters--;
+        }
+    }
+    // }
+
+
+    //!Game code
+
+    //!Update stats
+    //!keep collecting input
+    //!Update answerArray and remainingLetters
+}

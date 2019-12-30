@@ -67,50 +67,61 @@ function wordSelection() {
     }
 }
 
-
-setStats()
-wordSelection()
 // alert(wordRandom)
 
-function checkLetters(letter) {
-    var letterPresent = false;
-    for (var i = 0; i < wordSpaces; i++) {
-        if (wordRandom[i] == letter) {
-            letterPresent = true;
-        }
-    }
-    if (letterPresent) {
-        for (var i = 0; i < wordSpaces; i++) {
-            if (wordRandom[i] == letter) {
-                answerArray[i] == letter;
-            }
-        }
+function checkLetters() {
 
-    } else {
-        lettersGuessed.push(letter);
-        guessesLeft--;
+
+}
+
+function gameOver() {
+    if (wordLetters.toString() == answerArray.toString()) {
+        wins++;
+        reset();
+        document.getElementById("totalWins").innerHTML = wins;
+    } else if (guessesLeft === 0) {
+        losses++;
+        reset();
+
     }
 }
 
+//!Put it all together
+//sets all starter stats
+setStats()
+//chooses the word
+wordSelection()
 
-// var remainingLetters = wordRandom.length;
 // //!Collects user input
-// document.onkeyup = function (event) {
-//     var userGuess = event.key
-//     alert(userGuess);
+document.onkeyup = function (event) {
+    var userGuess = (event.key);
+    console.log(userGuess)
 
-//     //!Checks that the userGuess exists in the word array
-//     // while (remainingLetters > 0) {
-//     for (var j = 0; j < wordRandom.length; j++) {
-//         if (wordRandom[j] === userGuess && remainingLetters > 0) {
-//             answerArray[j] = userGuess;
-//             remainingLetters--;
-//             console.log(remainingLetters)
-//             console.log(answerArray)
-//             document.getElementById("word").innerHTML = answerArray.join(" ");
-//         }
-//     }
-// }
+    var remainingLetters = wordRandom.length;
+    console.log(remainingLetters)
+    for (var j = 0; j < wordRandom.length; j++) {
+        if (wordRandom[j] === userGuess && remainingLetters > 0) {
+            answerArray[j] = userGuess;
+            remainingLetters--;
+            console.log(remainingLetters)
+            console.log(answerArray)
+            document.getElementById("word").innerHTML = answerArray.join(" ");
+        }
+    }
+
+
+    gameOver();
+
+    document.getElementById("lettersGuessed").innerHTML = " " + lettersGuessed.join(" ");
+    document.getElementById("guessesLeft").innerHTML = " " + guessesLeft;
+}
+
+
+
+
+// //!Checks that the userGuess exists in the word array
+// // while (remainingLetters > 0) {
+
 
 
 //!Game code

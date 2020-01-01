@@ -12,7 +12,11 @@ var wordList = [
     "cookies",
     "frosty",
     "lights",
-    "cuddles"
+    "cuddles",
+    "eggnog",
+    "grinch",
+    "mistletoe",
+    "holly"
 ];
 
 //The randomly selected word
@@ -23,10 +27,10 @@ var wordLetters = [];
 var lettersGuessed = [];
 
 var answerArray = [];
-// letter that the player
+// letter that the player selects
 var userGuess = "";
 
-var wordSpaces = 0;
+// var wordSpaces = 0;
 
 //Stats variables
 var guessesLeft = 10;
@@ -45,9 +49,10 @@ function setStats() {
 // reset function
 function reset() {
     guessesLeft = 10;
-    lettersGuessed = [];
+    lettersGuessed.length = 0;
     answerArray = [];
     wordSelection();
+    setStats();
 }
 
 // runs word selection and placement into html
@@ -57,9 +62,9 @@ function wordSelection() {
     //split the word into new array
     wordLetters = wordRandom.split("");
     // stores the length of the current word as a number
-    wordSpaces = wordLetters.length;
+    // wordSpaces = wordLetters.length;
     // for testing purposes
-    alert(wordRandom)
+    // alert(wordRandom)
     //Creates an array from the selected word and displays __ in the HTML for each letter in the word
     for (var i = 0; i < wordLetters.length; i++) {
         answerArray[i] = "  __  ";

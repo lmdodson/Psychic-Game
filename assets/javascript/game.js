@@ -97,8 +97,28 @@ function game() {
                         //alert("for loop before doc");
                         //adds the correct letter inside all occurances in html
                         document.getElementById("word").innerHTML = answerArray.join(" ");
+                        // alert("for loop after doc");
                     }
                 }
+                //check if the word is solved
+                if (wordLetters.toString() == answerArray.toString()) {
+                    //alert("before wins++");
+                    wins++
+                    //add win to html
+                    document.getElementById("totalWins").innerHTML = wins;
+                    // alert ("You win! \nNext word selected. Choose a letter to keep playing");
+                    //start a new game
+                    reset();
+                }
+            } else {
+                //wrong guess
+                //adds wrong guess to html
+                document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+                //counts down guesses left
+                guessesLeft--
+                //updates number of guessesLeft in html
+                document.getElementById("guessesLeft").innerHTML = guessesLeft;
+                // alert(userGuess + (" IS NOT in the word: " + wordRandom + "\nNumber of guesses used: " + lettersGuessed.length + "/10"));
             }
         }
     })

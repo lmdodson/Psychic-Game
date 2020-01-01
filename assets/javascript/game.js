@@ -72,65 +72,54 @@ function wordSelection() {
     }
 }
 
-// alert(wordRandom)
 
-function checkLetters() {
+function game() {
+    //Collect user input
+    document.addEventListener("keydown", event => {
+        const userGuess = event.key.toLowerCase();
+        //add the guess to the letters Guessed array
+        lettersGuessed.push(userGuess);
+        //for debugging
+        //console.log(userGuess);
+        //alert(wordLetters);
+
+        //Ensures user has guesses left then tests if guess is correct or incorrect
+        if (lettersGuessed.length < 11) {
+            //right guess
+            if (wordRandom.match(userGuess)) {
+                //removes the letter from the array because it's right
+                lettersGuessed.pop(userGuess)
+                // alert(userGuess + (" IS in the word: " + wordRandom + "\nNumber of guesses used: " + lettersGuessed.length + "/10"));
+                //finds where in the array the letter is
+                for (var j = 0; j <= wordLetters.length; j++) {
+                    if (wordRandom[j] === userGuess) {
+                        answerArray[j] = userGuess;
+                        //alert("for loop before doc");
+                        //adds the correct letter inside all occurances in html
+                        document.getElementById("word").innerHTML = answerArray.join(" ");
+                    }
+                }
+            }
+        }
+    })
 
 
 }
 
-function gameOver() {
-    if (wordLetters.toString() == answerArray.toString()) {
-        wins++;
-        reset();
-        document.getElementById("totalWins").innerHTML = wins;
-    } else if (guessesLeft === 0) {
-        losses++;
-        reset();
 
-    }
-}
 
-//!Put it all together
-//sets all starter stats
-setStats()
-//chooses the word
-wordSelection()
 
 // //!Collects user input
-document.onkeyup = function (event) {
-    var userGuess = (event.key);
-    console.log(userGuess)
-
-    var remainingLetters = wordRandom.length;
-    console.log(remainingLetters)
-    for (var j = 0; j < wordRandom.length; j++) {
-        if (wordRandom[j] === userGuess && remainingLetters > 0) {
-            answerArray[j] = userGuess;
-            remainingLetters--;
-            console.log(remainingLetters)
-            console.log(answerArray)
-            document.getElementById("word").innerHTML = answerArray.join(" ");
-        }
-    }
-
-
-    gameOver();
-
-    document.getElementById("lettersGuessed").innerHTML = " " + lettersGuessed.join(" ");
-    document.getElementById("guessesLeft").innerHTML = " " + guessesLeft;
-}
 
 
 
+//!Put it all together
 
-// //!Checks that the userGuess exists in the word array
-// // while (remainingLetters > 0) {
-
-
-
-//!Game code
-
-//!Update stats
-//!keep collecting input
-//!Update answerArray and remainingLetters
+document.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+    console.log('content loaded');
+    //set stats
+    setStats();
+    wordSelection();
+    game();
+})

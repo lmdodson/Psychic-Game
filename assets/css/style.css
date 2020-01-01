@@ -33,6 +33,7 @@ body {
 
 
 .tree {
+    position: relative;
     grid-area: tree;
     background: url(../images/Tree.png) no-repeat;
     background-position: center;
@@ -42,14 +43,17 @@ body {
     height: 600px;
 }
 
-.present {
-    width: 60px;
-    height: 60px;
+/* .present {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: 0;
     padding: 2px;
     float: left;
     margin: 2px;
-    background: url(../images/present.png);
-}
+    background: url(../images/present.png) no-repeat;
+    background-size: contain;
+} */
 
 .game-board {
     grid-area: game;
@@ -59,11 +63,11 @@ body {
 
 #word {
     padding-top: 30px;
-    font-size: x-large;
+    font-size: 40px;
     color: darkblue;
 }
 
-.ornament {
+/* .ornament {
     background: url(../images/ornament.png) no-repeat;
     background-size: contain;
     background-position: center;
@@ -72,7 +76,7 @@ body {
     display: inline-block;
     width: 50px;
     height: 50px;
-}
+} */
 
 
 .game-stats {
@@ -87,4 +91,5 @@ body {
     font-family: 'Courgette', cursive;
     text-align: left;
     color: darkblue;
+    font-size: 30px;
 }

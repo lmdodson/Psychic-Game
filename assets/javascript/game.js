@@ -120,12 +120,14 @@ function game() {
                 document.getElementById("guessesLeft").innerHTML = guessesLeft;
                 // alert(userGuess + (" IS NOT in the word: " + wordRandom + "\nNumber of guesses used: " + lettersGuessed.length + "/10"));
             }
+        } else {
+            //Game Over
+            ++losses
+            // alert("Out of guesses! \nNext word selected. Choose a letter to keep playing!");
+            reset();
         }
-    })
-
-
+    });
 }
-
 
 
 

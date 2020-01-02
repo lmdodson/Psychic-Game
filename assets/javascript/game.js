@@ -72,10 +72,6 @@ function wordSelection() {
     }
 }
 
-function win(params) {
-
-}
-
 // function givePresent() {
 //     var present = document.createElement("div");
 //     present.classList.add("present");

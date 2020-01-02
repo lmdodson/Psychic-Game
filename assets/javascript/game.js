@@ -4,7 +4,7 @@ var wordList = [
     "snowflake",
     "present",
     "santa",
-    "ornaments",
+    "ornament",
     "sleigh",
     "reindeer",
     "krampus",
@@ -72,6 +72,17 @@ function wordSelection() {
     }
 }
 
+function win(params) {
+
+}
+
+// function givePresent() {
+//     var present = document.createElement("div");
+//     present.classList.add("present");
+//     var currentDiv = document.getElementById("under-tree");
+//     document.body.insertAdjacentElement(present, currentDiv);
+// }
+
 
 function game() {
     //Collect user input
@@ -84,7 +95,7 @@ function game() {
         //alert(wordLetters);
 
         //Ensures user has guesses left then tests if guess is correct or incorrect
-        if (lettersGuessed.length < 11) {
+        if (lettersGuessed.length < 10) {
             //right guess
             if (wordRandom.match(userGuess)) {
                 //removes the letter from the array because it's right
@@ -107,6 +118,7 @@ function game() {
                     //add win to html
                     document.getElementById("totalWins").innerHTML = wins;
                     // alert ("You win! \nNext word selected. Choose a letter to keep playing");
+                    alert("Congratulations you won! Choose another letter to keep playing!")
                     //start a new game
                     reset();
                 }
@@ -124,19 +136,15 @@ function game() {
             //Game Over
             ++losses
             // alert("Out of guesses! \nNext word selected. Choose a letter to keep playing!");
+
+            alert("You lost! The word was " + wordRandom);
+            //start a new game
             reset();
         }
     });
 }
 
-
-
-// //!Collects user input
-
-
-
 //!Put it all together
-
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
     console.log('content loaded');

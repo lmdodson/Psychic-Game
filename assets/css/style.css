@@ -3,15 +3,14 @@ body {
     background-size: cover;
 }
 
-
 .game-section {
     display: grid;
     grid-template-columns: auto 50%;
     grid-template-rows: auto 20% auto;
     grid-template-areas:
         'header header'
-        'tree game'
-        'tree stats';
+        'results game'
+        'none stats';
     gap: 20px;
 }
 
@@ -32,38 +31,6 @@ body {
     color: goldenrod;
 }
 
-
-.tree {
-    position: relative;
-    grid-area: tree;
-    background: url(../images/christmasTree.png) no-repeat;
-    background-position: center;
-    /* Following line makes the tree fit inside the div */
-    background-size: contain;
-    /* width: 300px; */
-    height: 600px;
-}
-
-#under-tree {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100px;
-    bottom: 30px;
-}
-
-.present {
-    width: 50px;
-    height: 50px;
-    bottom: 0;
-    padding: 2px;
-    margin: 2px;
-    background: url(../images/presentRed.png) no-repeat;
-    background-size: contain;
-    float: left;
-    /* visibility: hidden; */
-}
-
 .game-board {
     grid-area: game;
     border: ridge red;
@@ -77,22 +44,16 @@ body {
     color: darkblue;
 }
 
-/* .ornament {
-    background: url(../images/ornament.png) no-repeat;
-    background-size: contain;
-    background-position: center;
-    border-style: solid;
-    padding: 15px;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-} */
-
-
 .game-stats {
     grid-area: stats;
     border: ridge red;
     background-color: lightgray;
+}
+
+.results {
+    grid-area: results;
+    color: darkblue;
+    font-size: 30px;
 }
 
 .directions,
@@ -114,12 +75,13 @@ body {
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
+
+@keyframes glow {
     from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff3b3b, 0 0 20px #ff3b3b, 0 0 25px #ff3b3b, 0 0 30px #ff3b3b, 0 0 35px #ff3b3b;
     }
 
     to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #da2828, 0 0 40px #da2828, 0 0 50px #da2828, 0 0 60px #da2828, 0 0 70px #da2828, 0 0 80px #da2828;
+        text-shadow: 0 0 7px #fff, 0 0 12px #da2828, 0 0 17px #da2828, 0 0 22px #da2828, 0 0 27px #da2828, 0 0 32px #da2828, 0 0 37px #da2828;
     }
 }

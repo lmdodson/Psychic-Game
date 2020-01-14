@@ -103,9 +103,9 @@ function game() {
                     wins++
                     //add win to html
                     document.getElementById("totalWins").innerHTML = wins;
-                    alert("Congratulations you won! Choose another letter to keep playing!")
+                    document.getElementById("word").innerText = ("Congrats you won! The word was " + wordRandom);
                     //start a new game
-                    reset();
+                    wait();
                 }
             } else {
                 //adds wrong guess to html
@@ -118,18 +118,24 @@ function game() {
         } else {
             //Game Over
             ++losses
-
-            alert("You lost! The word was " + wordRandom);
+            document.getElementById("word").innerText = ("Sorry you lost, the word was " + wordRandom);
+            wait();
             //start a new game
-            reset();
         }
     });
 }
+
+function wait() {
+    setTimeout(reset, 3000);
+}
+
+
 
 //!Put it all together
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
     console.log('content loaded');
+    //set stats
     setStats();
     wordSelection();
     game();
